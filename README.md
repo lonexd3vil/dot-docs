@@ -149,7 +149,6 @@ Response:
     "ref_by": ""
 }
 ```
-
 If user had a ref code while registration:
 ```json
 {
@@ -165,5 +164,71 @@ Response:
     "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
     "total_credits": 50,
     "ref_by": "1A113F"
+}
+```
+## Delete User
+Request Uri: <code>/api/user/delete/</code>
+
+Request Type: DELETE
+
+Description: Just to delete a user from the platform.
+
+Auth token Required: True
+
+Request Parameters:
+```json
+{
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167"
+}
+```
+Response:
+```json
+{
+    "Status": "Deleted user!"
+}
+```
+## User Auth Tokens Get
+Request Uri: <code>/api/auth/token/</code>
+
+Request Type: POST
+
+Description: To get the access tokens, u need to supply a Signature and a message and if both matched and if the decoded blockchain address is in the database, we give out tokens for that specific user.
+
+Auth Token Required: False
+
+Request Parameters:
+```json
+{
+    "signature": "0x31f8b104895822caf944627aa4b42771c9cc438f3752d246d6f984071292d7ff0d1fbee722ab3012d0750fe178aa02301d5b770665c971d873c95a5632d6b3f21c",
+    "message": "1234567890"
+}
+```
+Response:
+```json
+{
+    "message": "Success",
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3MTY1MTQ2LCJpYXQiOjE2OTY1NjAzNDYsImp0aSI6IjVmYTI2Y2IwYWU0ODRmNTFiZTc3ZjU1YzhhMzkwZDg0IiwidXNlcl9pZCI6IjQ1MDUxZWU4LTA0MDMtNDc5Zi04Y2I3LTUwYWMxOGM3OTU2NSJ9.9tKjxKm-M5sj8ZNgMIaIDlaeF3CgwfENKXEhEfmEXiI",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5ODk3OTU0NiwiaWF0IjoxNjk2NTYwMzQ2LCJqdGkiOiIyZDcyYWI5MjIxYTA0NWQ0YWI3ZjA2MmYwOGNlNjE3MiIsInVzZXJfaWQiOiI0NTA1MWVlOC0wNDAzLTQ3OWYtOGNiNy01MGFjMThjNzk1NjUifQ.PYi3O4yUjXn0XHVNPqSwiXIB1a3-vvHlKtgFqqxP_XU"
+}
+```
+## Refresh Auth Tokens
+Request Uri: <code>/api/auth/token/refresh/</code>
+
+Request Type: POST
+
+Description: To Refresh an access token after it has expired.
+
+Auth Token Required: False
+
+Request Parameters:
+```json
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5ODYyNDg3MSwiaWF0IjoxNjk2MjA1NjcxLCJqdGkiOiI1ZGMyOWEzZTE3ZjU0YmU2YjhiZDFlNmE2M2MxMzRiNCIsInVzZXJfaWQiOiI4NWQ2OWViZS00NzkyLTRjZDktYmY3OC01YmU5YWMwMWM5YjIifQ.3bxqm1LzNAgeQnvUxzQah0wCtkS-VpeJbl5T-kJLIhQ"
+}
+```
+Response:
+```json
+{
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2ODEwNjU1LCJpYXQiOjE2OTYyMDU2NzEsImp0aSI6IjYwYWUxMDdjODgyZjQwYTE5NTUxZDNhMzQ2OGRmM2E4IiwidXNlcl9pZCI6Ijg1ZDY5ZWJlLTQ3OTItNGNkOS1iZjc4LTViZTlhYzAxYzliMiJ9.qUMXvqWrRq--com8jJ07y1GuneXprB3Z1O6t2jS1hzA"
 }
 ```
