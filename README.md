@@ -115,4 +115,55 @@ Request Parameters:
     "score": 25
 }
 ```
+Response:
+```json
+{
+    "Status": "Score Updated!",
+    "score": 100
+}
+```
+## User Registration
+Request Uri: <code>/api/auth/register/</code>
 
+Request Type: POST
+
+Description: Registration part, user will need a blockchain address, and a total credits amount will be given dynamically as of now, later it will be hard coded in backend for registration of users. There are two cases where users can either give a referral code provided to them via pre-existing users or can register without using any ref codes as well.
+
+Auth Token Required: True
+
+Request Parameters:
+
+If user don't have a ref code:
+```json
+{
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+    "total_credits": 50
+}
+```
+Response:
+```json
+{
+    "id": "45051ee8-0403-479f-8cb7-50ac18c79565",
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+    "total_credits": 50,
+    "ref_by": ""
+}
+```
+
+If user had a ref code while registration:
+```json
+{
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+    "ref_by": "1A113F",
+    "total_credits": 50
+}
+```
+Response:
+```json
+{
+    "id": "45051ee8-0403-479f-8cb7-50ac18c79565",
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+    "total_credits": 50,
+    "ref_by": "1A113F"
+}
+```
