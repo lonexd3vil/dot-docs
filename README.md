@@ -1,4 +1,4 @@
-# dot-docs
+## Get Users
 Request Uri: <code>/api/users/</code>
 
 Request Type: GET
@@ -39,6 +39,7 @@ Response:
 
 ```
 
+## Get Leaderboards
 Request Uri: <code>/api/ranking/</code>
 
 Request Type: GET
@@ -71,4 +72,28 @@ Response:
         "referrers_count": 0
     }
 ]
+```
+## Get Single User
+Request Uri: <code>/api/user/</code>
+
+Request Type: POST
+
+Description: This will fetch data regarding any one user in question via their username [ blockchain address ].
+
+Auth Token Required: True
+
+Request Parameters:
+```json
+{ 
+   "block": "0xBe540603F70191e3c984e88A7a8562A3084B1167"
+}
+```
+Response:
+```json
+{
+    "id": "45051ee8-0403-479f-8cb7-50ac18c79565",
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+    "total_credits": 75,
+    "ref_by": "1A113F"
+}
 ```
