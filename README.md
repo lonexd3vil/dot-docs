@@ -97,3 +97,22 @@ Response:
     "ref_by": "1A113F"
 }
 ```
+
+## Increment Score
+Request: <code>/api/users/score/</code>
+
+Request Type: POST
+
+Description: This will decode the blockchain address from the given signature, and if the user exists on the server increment the score as given in the score parameter.
+
+Auth Token Required: True
+
+Request Parameters:
+```json
+{
+    "signature": "0x31f8b104895822caf944627aa4b42771c9cc438f3752d246d6f984071292d7ff0d1fbee722ab3012d0750fe178aa02301d5b770665c971d873c95a5632d6b3f21c",
+    "message": "1234567890",
+    "score": 25
+}
+```
+
