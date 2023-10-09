@@ -127,6 +127,8 @@ Response:
 }
 ```
 
+****
+
 ## Increment Score
 Request: <code>/api/users/score/</code>
 
@@ -139,18 +141,32 @@ Auth Token Required: True
 Request Parameters:
 ```json
 {
-    "signature": "0x31f8b104895822caf944627aa4b42771c9cc438f3752d246d6f984071292d7ff0d1fbee722ab3012d0750fe178aa02301d5b770665c971d873c95a5632d6b3f21c",
-    "message": "1234567890",
-    "score": 25
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+    "total_credits": 50,
+    "discord_id": "unravler",
+    "twitter_id": "unravler",
+    "is_following_twitter": true,
+    "has_broadcasted_twitter": true,
+    "mapped_ip": "192.168.1.18",
+    "score": 25,
+    "signature": "0x8b43f5839effc245a041714b1af649a3908b572918e3b53e091365770c3c5b1c452e65437abd1c401b24b51a95067c01b30852093a91fb2f4c29193d1bd89d251c"
 }
 ```
+
+Explaination: I created the signature using above fields so I gave the data and signature in that format. You can pass your parameters with whom you created this signature from. the signature will be taken out from the request JSON and all the other parameteres will be used to process and decode the signature.
+
+If the decoded username matches then we update the score.
+
 Response:
 ```json
 {
     "Status": "Score Updated!",
-    "score": 100
+    "score": 75
 }
 ```
+
+****
+
 ## User Registration
 Request Uri: <code>/api/auth/register/</code>
 
@@ -158,7 +174,7 @@ Request Type: POST
 
 Description: Registration part, user will need a blockchain address, and a total credits amount will be given dynamically as of now, later it will be hard coded in backend for registration of users. There are two cases where users can either give a referral code provided to them via pre-existing users or can register without using any ref codes as well.
 
-Auth Token Required: True
+Auth Token Required: False
 
 Request Parameters:
 
