@@ -179,38 +179,68 @@ Auth Token Required: False
 Request Parameters:
 
 If user don't have a ref code:
+
 ```json
 {
-    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
-    "total_credits": 50
-}
-```
-Response:
-```json
-{
-    "id": "45051ee8-0403-479f-8cb7-50ac18c79565",
     "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
     "total_credits": 50,
-    "ref_by": ""
+    "discord_id": "unravler",
+    "twitter_id": "unravler",
+    "is_following_twitter": true,
+    "has_broadcasted_twitter": true,
+    "mapped_ip": "192.168.1.18",
+    "signature": "0x902d68a8cdfd574e1f4bbe8cd5b0d00cee6389ef3dd4ce4f6d97065b43db095e27501f4c1cdcb5208537192c1e9561292e72b1f20c860bee9e30c99e4339a46b1c"
 }
 ```
+
+Response:
+
+```json
+{
+    "success": {
+        "id": "63f918a4-256b-46e9-9539-16e88dea0836",
+        "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+        "total_credits": 50,
+        "referred_by": "",
+        "registered_at": "2023-10-09"
+    },
+    "status": 200
+}
+```
+
 If user had a ref code while registration:
+
 ```json
 {
-    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
-    "ref_by": "1A113F",
-    "total_credits": 50
-}
-```
-Response:
-```json
-{
-    "id": "45051ee8-0403-479f-8cb7-50ac18c79565",
     "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
     "total_credits": 50,
-    "ref_by": "1A113F"
+    "discord_id": "unravler",
+    "twitter_id": "unravler",
+    "is_following_twitter": true,
+    "has_broadcasted_twitter": true,
+    "mapped_ip": "192.168.1.18",
+    "ref_by": "1A113F",
+    "signature": "0x902d68a8cdfd574e1f4bbe8cd5b0d00cee6389ef3dd4ce4f6d97065b43db095e27501f4c1cdcb5208537192c1e9561292e72b1f20c860bee9e30c99e4339a46b1c"
 }
 ```
+
+Response:
+
+```json
+{
+    "success": {
+        "id": "63f918a4-256b-46e9-9539-16e88dea0836",
+        "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+        "total_credits": 50,
+        "referred_by": "1A113F",
+        "registered_at": "2023-10-09"
+    },
+    "status": 200
+}
+```
+
+****
+
 ## Delete User
 Request Uri: <code>/api/user/delete/</code>
 
@@ -221,17 +251,23 @@ Description: Just to delete a user from the platform.
 Auth token Required: True
 
 Request Parameters:
+
 ```json
 {
     "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167"
 }
 ```
+
 Response:
+
 ```json
 {
     "Status": "Deleted user!"
 }
 ```
+
+****
+
 ## User Auth Tokens Get
 Request Uri: <code>/api/auth/token/</code>
 
@@ -244,10 +280,19 @@ Auth Token Required: False
 Request Parameters:
 ```json
 {
-    "signature": "0x31f8b104895822caf944627aa4b42771c9cc438f3752d246d6f984071292d7ff0d1fbee722ab3012d0750fe178aa02301d5b770665c971d873c95a5632d6b3f21c",
-    "message": "1234567890"
+    "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+    "total_credits": 50,
+    "discord_id": "unravler",
+    "twitter_id": "unravler",
+    "is_following_twitter": true,
+    "has_broadcasted_twitter": true,
+    "mapped_ip": "192.168.1.18",
+    "signature": "0x902d68a8cdfd574e1f4bbe8cd5b0d00cee6389ef3dd4ce4f6d97065b43db095e27501f4c1cdcb5208537192c1e9561292e72b1f20c860bee9e30c99e4339a46b1c"
 }
 ```
+
+`Note`: Am just using these parameters for the sake of signature verification because i initially used these parameters to encode and create a signature. You can any data and any signature and if the data matches you will be given access tokens.
+
 Response:
 ```json
 {
@@ -256,6 +301,9 @@ Response:
     "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5ODk3OTU0NiwiaWF0IjoxNjk2NTYwMzQ2LCJqdGkiOiIyZDcyYWI5MjIxYTA0NWQ0YWI3ZjA2MmYwOGNlNjE3MiIsInVzZXJfaWQiOiI0NTA1MWVlOC0wNDAzLTQ3OWYtOGNiNy01MGFjMThjNzk1NjUifQ.PYi3O4yUjXn0XHVNPqSwiXIB1a3-vvHlKtgFqqxP_XU"
 }
 ```
+
+****
+
 ## Refresh Auth Tokens
 Request Uri: <code>/api/auth/token/refresh/</code>
 
