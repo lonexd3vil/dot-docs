@@ -122,7 +122,8 @@ Response:
     "id": "45051ee8-0403-479f-8cb7-50ac18c79565",
     "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
     "total_credits": 75,
-    "ref_by": "1A113F"
+    "ref_by": "1A113F",
+    "code": "ZPE3BO"
 }
 ```
 
