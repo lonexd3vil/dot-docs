@@ -50,42 +50,57 @@ Response:
 }
 ```
 
+****
+
 ## Get Leaderboards
-Request Uri: <code>/api/ranking/</code>
+Request Uri: `/api/ranking/`
 
 Request Type: GET
 
 Paginated Response: True
 
-Description: This will return a list of users [ Query Limited to 10 Users ] based on their referral count.
+Description: This will return a list of users [ Query Limited to 10 Users by default ] based on their referral count.
 
 Auth Token Required: False
 
 Response:
 ```json 
-[
-    {
-        "username": "0xMe540603F70191e3c984e88A7a8562A3084B1167",
-        "referrers_count": 3
-    },
-    {
-        "username": "0xHe540603F70191e3c984e88A7a8562A3084B1167",
-        "referrers_count": 0
-    },
-    {
-        "username": "0xAe540603F70191e3c984e88A7a8562A3084B1167",
-        "referrers_count": 0
-    },
-    {
-        "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
-        "referrers_count": 0
-    },
-    {
-        "username": "0xKe540603F70191e3c984e88A7a8562A3084B1167",
-        "referrers_count": 0
-    }
-]
+{
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+            "referrers_count": 1
+        },
+        {
+            "username": "unravler",
+            "referrers_count": 0
+        }
+    ]
+}
 ```
+
+provide the results size in url: `/api/ranking/?results=1`
+
+Response:
+```json
+{
+    "count": 2,
+    "next": "http://127.0.0.1:8000/api/ranking/?page=2&results=1",
+    "previous": null,
+    "results": [
+        {
+            "username": "0xBe540603F70191e3c984e88A7a8562A3084B1167",
+            "referrers_count": 1
+        }
+    ]
+}
+```
+
+****
+
 ## Get Single User
 Request Uri: <code>/api/user/</code>
 
