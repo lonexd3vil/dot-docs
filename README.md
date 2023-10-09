@@ -153,7 +153,7 @@ Request Parameters:
 }
 ```
 
-Explaination: I created the signature using above fields so I gave the data and signature in that format. You can pass your parameters with whom you created this signature from. the signature will be taken out from the request JSON and all the other parameteres will be used to process and decode the signature.
+`Explaination:` I created the signature using above fields so I gave the data and signature in that format. You can pass your parameters with whom you created this signature from. the signature will be taken out from the request JSON and all the other parameteres will be used to process and decode the signature.
 
 If the decoded username matches then we update the score.
 
